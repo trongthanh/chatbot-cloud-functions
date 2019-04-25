@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 3000;
 // const app = require('../api/weather');
 // const app = require('../api/aqi');
 // const app = require('../api/random');
-const app = require('../api/giphy');
+// const app = require('../api/giphy');
+const app = require('../api/ama');
 
 // define mock json path here
 app.use('/mock/weather.json/:lat,:lng', (req, res) => {
