@@ -113,7 +113,7 @@ class Weather {
    * @param  {Number} long [description]
    * @return {Promise}      Resolved promise
    */
-  getWeatherForecast(lat = 10.7726247, lng = 106.7018555) {
+  fetchWeatherForecast(lat = 10.7726247, lng = 106.7018555) {
     return this.request
       .get(`${lat},${lng}?units=ca`)
       .then((res) => {

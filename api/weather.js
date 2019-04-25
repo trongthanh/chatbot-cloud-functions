@@ -13,7 +13,7 @@ app.get('/api/*', (req, res) => {
   const weather = new Weather();
 
   weather
-    .getWeatherForecast()
+    .fetchWeatherForecast()
     .then((rawObj) => {
       const condition = weather.getCurrentCondition();
       const nextHourCondition = weather.getNextHourCondition();
@@ -44,7 +44,7 @@ app.get('/api/*', (req, res) => {
       });
     })
     .catch((error) => {
-      console.log('Weather.getWeatherForecast ERROR', error);
+      console.log('Weather.fetchWeatherForecast ERROR', error);
       res.send(error);
     });
 });
