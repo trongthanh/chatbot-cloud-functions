@@ -22,16 +22,28 @@ app.post('/api/*', (req, res) => {
   }
 
   const options = optionsText.split(',');
-  const result = getRandomItem(options);
+  const result = String(getRandomItem(options))
+    .replace(/[?:]/g, '')
+    .trim();
 
   console.log('random result', result);
+  if (result) {
+    return res.json({
+      success: true,
+      errorCode: '200',
+      errorMsg: '',
+      fields: {
+        result: result.replace(/[?:]/g, ''),
+      },
+    });
+  }
 
   res.json({
     success: true,
     errorCode: '200',
     errorMsg: '',
     fields: {
-      result: result.replace(/[?:]/g, ''),
+      result: 'Sorry. No option to answer.',
     },
   });
 });
