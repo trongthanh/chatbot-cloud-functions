@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Serverless functions to handle fulfillment request from lazuli bot",
   "scripts": {
+    "eslint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon test/app.js"
   },
@@ -16,5 +17,7 @@
     "got": "^9.6.0",
     "helmet": "^3.16.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^5.16.0"
+  }
 }

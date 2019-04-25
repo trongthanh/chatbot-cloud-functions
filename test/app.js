@@ -3,22 +3,23 @@
  *
  * Express wrapper to test endpoints locally
  */
-const path = require('path');
-
 const PORT = process.env.PORT || 3000;
 
-// test single app endpoint here
-
+// test app endpoint here, only one at a time
 // const app = require('../api/default');
-const app = require('../api/weather');
+// const app = require('../api/weather');
+// const app = require('../api/aqi');
 
 // define mock json path here
 app.use('/mock/weather.json/:lat,:lng', (req, res) => {
   res.json(require('../mock/weather.json'));
 });
 
+app.use('/mock/aqi.json', (req, res) => {
+  res.json(require('../mock/aqi.json'));
+});
 // error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   console.log('err', err);
   if (err) {
     // render the error page
@@ -28,9 +29,10 @@ app.use((err, req, res, next) => {
 });
 
 // start server
-const server = app.listen(PORT, (err) => {
+app.listen(PORT, (err) => {
   if (err) {
-    return reject(err);
+    return err;
   }
+
   console.log('App started and listening on port', PORT);
 });

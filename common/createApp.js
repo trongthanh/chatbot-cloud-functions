@@ -3,7 +3,6 @@
  *
  * Express boilerplate for each endpoints
  */
-const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
 
@@ -12,7 +11,7 @@ function createApp() {
 
   app.use(helmet()); // security header
   app.use(express.json()); // alternative to body-parser middleware
-  app.use(express.urlencoded({ extended: false }));
+  app.use(express.urlencoded({ extended: true }));
 
   // error handler
   // app.use(function(err, req, res) {

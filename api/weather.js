@@ -14,7 +14,7 @@ app.get('/api/*', (req, res) => {
 
   weather
     .fetchWeatherForecast()
-    .then((rawObj) => {
+    .then(() => {
       const condition = weather.getCurrentCondition();
       const nextHourCondition = weather.getNextHourCondition();
 
