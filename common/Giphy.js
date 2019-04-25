@@ -28,7 +28,7 @@ class GiphyResult {
 
   get image() {
     const rawObj = this.rawObj;
-    return new GiphyImage(rawObj.data && rawObj.data.images && rawObj.data.images.fixed_width);
+    return new GiphyImage(rawObj.data && rawObj.data.images && rawObj.data.images.downsized);
   }
 }
 
